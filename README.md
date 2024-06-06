@@ -66,6 +66,40 @@ Access the server's HTTP 80 port or HTTPS 443 port through a browser, and you ca
 Don't forget to read the documentation: http://opensource.qduoj.com/
 
 
+## Build Nginx
+
+1. Download the Nginx installation package
+
+   - Please use nginx latest version: [http://nginx.org/en/download.html](http://nginx.org/en/download.html)
+   - & use headers-more-nginx-module [compatible version](https://github.com/openresty/headers-more-nginx-module?tab=readme-ov-file#compatibility)
+
+    ```bash
+    wget 'http://nginx.org/download/nginx-1.22.1.tar.gz'
+    tar -xzvf nginx-1.22.1.tar.gz
+    cd nginx-1.22.1
+    ```
+
+    ```bash
+    wget 'https://github.com/openresty/headers-more-nginx-module/archive/refs/tags/v0.37.tar.gz'
+    tar -xzvf v0.37.tar.gz
+    ```
+
+2. Build and Install
+
+    ```bash
+    sudo apt-get install -y libpcre3 libpcre3-dev zlib1g-dev openssl libssl-dev
+    ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=./headers-more-nginx-module-0.37
+    make
+    sudo make install
+    ```
+
+3. Clean up build files
+
+    ```bash
+    cd ..
+    rm -rf nginx-1.22.1
+    ```
+
 ## SSL Configuration
 
 1. Install Certbot

@@ -68,11 +68,36 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
 
 ## SSL Configuration
 
-1. Generate SSL certificate
+1. Install Certbot
 
     ```bash
-    sudo apt-get install -y certbot
-    sudo certbot certonly --standalone -d your_domain
+    sudo apt-get install letsencrypt -y
+    ```
+
+2. Shutdown Global System Nginx
+
+    ```bash
+    sudo service nginx stop
+    ```
+
+3. Obtain SSL Certificate
+
+    ```bash
+    sudo certbot certonly --standalone -d daiv.ddns.net
+    sudo cat /etc/letsencrypt/live/daiv.ddns.net/fullchain.pem
+    ```
+
+4. Add SSL Settings to Nginx Config
+
+    ```bash
+    sudo cp ./nginx/default /etc/nginx/sites-available/default
+    ```
+
+5. Restart Nginx
+
+    ```bash
+    sudo nginx -t
+    sudo service nginx restart
     ```
 
 ## Uninstall

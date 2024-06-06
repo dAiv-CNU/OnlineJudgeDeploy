@@ -100,6 +100,23 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
     sudo service nginx restart
     ```
 
+6. Add a scheduled task to renew the certificate
+
+    ```bash
+    sudo chmod +x cert_renew.sh
+    sudo crontab -e
+    ```
+
+    - add the following line to the file
+    ```nano
+    30 4 * * 0 /home/daiv/deploy/cert_renew.sh
+    ```
+
+    - restart cron service
+    ```bash
+    sudo service cron start
+    ```
+
 ## Uninstall
 
 1. Stop service containers

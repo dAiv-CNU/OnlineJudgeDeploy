@@ -41,7 +41,6 @@ server {
 
         ssl_certificate "/etc/letsencrypt/live/daiv.ddns.net/fullchain.pem";
         ssl_certificate_key "/etc/letsencrypt/live/daiv.ddns.net/privkey.pem";
-        ssl_dhparam "/etc/nginx/ssl/dhparams.pem";
 
         server_name daiv.ddns.net;
 
@@ -52,7 +51,7 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "upgrade";
                 proxy_set_header X-Real-IP $remote_addr;
-                proxy_pass https://localhost:8081;
+                proxy_pass http://127.0.0.1:8081;
         }
 
         # pass PHP scripts to FastCGI server

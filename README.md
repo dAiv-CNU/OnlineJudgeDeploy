@@ -35,12 +35,12 @@ Main modules are available below:
     git clone -b 2.0 https://github.com/dAiv-CNU/OnlineJudgeDeploy.git deploy
     sudo ln -rs deploy ./Desktop/deploy
     cd deploy
-    git clone https://github.com/dAiv-CNU/OnlineJudge.git backend
     ```
 
-2. Build custom docker images
+2. Build custom docker images (if needed)
 
     ```bash
+    git clone https://github.com/dAiv-CNU/OnlineJudge.git backend
     sudo docker buildx build ./backend -t oj-image/backend --load
     ```
 

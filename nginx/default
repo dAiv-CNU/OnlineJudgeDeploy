@@ -36,10 +36,7 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "upgrade";
                 proxy_set_header X-Real-IP $remote_addr;
-
-                more_set_headers -s '200' 'X-Frame-Options:';
-                add_header X-Frame-Options "ALLOWALL";
-
+                add_header X-Frame-Options "ALLOW-FROM https://daiv-cnu.github.io/";
                 proxy_pass http://127.0.0.1:80;
         }
 

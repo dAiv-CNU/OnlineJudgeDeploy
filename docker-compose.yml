@@ -43,7 +43,7 @@ services:
       - "0.0.0.0:8080:8080"
 
   oj-backend:
-    image: registry.cn-hongkong.aliyuncs.com/oj-image/backend:1.6.1
+    image: oj-image/backend
     restart: always
     depends_on:
       - oj-redis

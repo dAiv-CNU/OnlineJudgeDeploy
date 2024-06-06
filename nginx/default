@@ -37,9 +37,13 @@ server {
                 proxy_set_header Connection "upgrade";
                 proxy_set_header X-Real-IP $remote_addr;
 
+                more_set_headers 'Server:';
+
                 more_set_headers 'X-Frame-Options:';
                 add_header X-Frame-Options "ALLOWALL";
                 proxy_cookie_path / "/; SameSite=None; Secure";
+                more_set_headers 'Referrer-Policy:';
+                add_header Referrer-Policy "unsafe-url";
 
                 more_set_headers 'Access-Control-Allow-Headers:';
                 add_header Access-Control-Allow-Headers "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token";

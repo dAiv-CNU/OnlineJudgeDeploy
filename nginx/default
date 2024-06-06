@@ -41,6 +41,10 @@ server {
                 add_header X-Frame-Options "ALLOWALL";
                 proxy_cookie_path / "/; SameSite=None; Secure";
 
+                more_set_headers 'Access-Control-Allow-Headers:';
+                add_header Access-Control-Allow-Headers "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token";
+                more_set_headers 'Access-Control-Allow-Methods:';
+                add_header Access-Control-Allow-Methods "*";
                 more_set_headers 'Access-Control-Allow-Origin:';
                 add_header Access-Control-Allow-Origin "*";
 

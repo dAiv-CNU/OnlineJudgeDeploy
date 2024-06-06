@@ -36,7 +36,7 @@ services:
       - ./data/judge_server/run:/judger
     environment:
       - SERVICE_URL=http://127.0.0.1:8080
-      - BACKEND_URL=http://127.0.0.1:8000/api/judge_server_heartbeat/
+      - BACKEND_URL=http://127.0.0.1:8081/api/judge_server_heartbeat/
       - TOKEN=CHANGE_THIS
       # - judger_debug=1
 
@@ -57,5 +57,5 @@ services:
       # - FORCE_HTTPS=1
       # - STATIC_CDN_HOST=cdn.oj.com
     ports:
-      - "127.0.0.1:80:8000"
-      - "127.0.0.1:443:1443"
+      - "0.0.0.0:8081:8000"
+      - "0.0.0.0:8443:1443"

@@ -76,6 +76,7 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
     ```bash
     wget 'http://nginx.org/download/nginx-1.22.1.tar.gz'
     tar -xzvf nginx-1.22.1.tar.gz
+    rm *.tar.gz
     cd nginx-1.22.1
     ```
 
@@ -88,9 +89,12 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
 
     ```bash
     sudo apt-get install -y libpcre3 libpcre3-dev zlib1g-dev openssl libssl-dev
-    ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=./headers-more-nginx-module-0.37
+    ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_v2_module --add-module=./headers-more-nginx-module-0.37
     make
     sudo make install
+    /usr/local/nginx/sbin/nginx -V
+    sudo ln -s /etc/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf
+    sudo ln -s /usr/local/nginx/sbin/nginx /sbin/nginx
     ```
 
 3. Clean up build files

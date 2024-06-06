@@ -74,10 +74,11 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
     sudo apt-get install letsencrypt -y
     ```
 
-2. Shutdown Global System Nginx
+2. Shutdown Global/Docker System Nginx
 
     ```bash
     sudo service nginx stop
+    sudo docker compose down
     ```
 
 3. Obtain SSL Certificate
@@ -98,6 +99,7 @@ Don't forget to read the documentation: http://opensource.qduoj.com/
     ```bash
     sudo nginx -t
     sudo service nginx restart
+    sudo docker compose up -d
     ```
 
 6. Add a scheduled task to renew the certificate

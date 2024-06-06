@@ -35,10 +35,12 @@ services:
       - ./data/judge_server/log:/log
       - ./data/judge_server/run:/judger
     environment:
-      - SERVICE_URL=http://oj-judge:8080
-      - BACKEND_URL=http://oj-backend:8000/api/judge_server_heartbeat/
+      - SERVICE_URL=http://127.0.0.1:8080
+      - BACKEND_URL=http://127.0.0.1:8000/api/judge_server_heartbeat/
       - TOKEN=CHANGE_THIS
       # - judger_debug=1
+    ports:
+      - "0.0.0.0:8080:8080"
 
   oj-backend:
     image: registry.cn-hongkong.aliyuncs.com/oj-image/backend:1.6.1
